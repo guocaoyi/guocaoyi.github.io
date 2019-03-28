@@ -1,6 +1,7 @@
 # folder
 node_modules/
-# public/
+**/public/
+public
 .deploy*/
 
 #files
