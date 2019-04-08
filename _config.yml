@@ -1,9 +1,9 @@
 # Site
-title: CODE
+title: 暗中观察
 subtitle: Don't panic!
 description:
 keywords:
-author: GCY
+author: gcy
 language: 
   - en
   - zh-cn
@@ -32,7 +32,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -57,7 +57,7 @@ date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
 # Pagination
-per_page: 10
+per_page: 10\
 pagination_dir: page
 
 # Extensions
