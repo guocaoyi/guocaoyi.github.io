@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LeetCode 刷题之路：14
+title: LeetCode 刷题之路：14. Longest Common Prefix
 date: 2019-03-27 15:36:45
 updated: 2019-03-28 15:36:45
 categories:
@@ -8,8 +8,6 @@ categories:
 tags:
   - String
 ---
-
-# 14 Longest Common Prefix
 
 ## Related Topics
 

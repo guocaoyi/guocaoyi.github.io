@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LeetCode 刷题之路：334
+title: LeetCode 刷题之路：344. Reverse String
 date: 2018-12-27 15:36:45
 updated: 2018-12-28 15:36:45
 categories:
@@ -9,8 +9,6 @@ tags:
   - Two Pointers
   - String
 ---
-
-# 344. Reverse String
 
 ## Related Topics
 
