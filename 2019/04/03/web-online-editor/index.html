@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en,zh-cn,default">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Web Online Code Editor"><meta name="keywords" content="Web, Env, 暗中观察"><link rel="shortcut icon" type="image/x-icon" href="/plunger.ico?v=2.11.0">
+<link rel="canonical" href="https://www.yalda.cn/2019/04/03/web-online-editor/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>Web Online Code Editor - 暗中观察</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <!-- a href="/." class="logo">暗中观察</a -->
+    <img class="img" src="/images/logo.png">
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/">
+    <img class="logo-image" src="/images/logo.png">
+  </a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Web Online Code Editor
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-04-03
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Contrast"><span class="toc-text">Contrast</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE"><span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Editor"><span class="toc-text">Editor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Code-Editor"><span class="toc-text">Online Code Editor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feature"><span class="toc-text">Feature</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Online-Code-Editor-1"><span class="toc-text">Online Code Editor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Thimble"><span class="toc-text">Thimble</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dabblet"><span class="toc-text">Dabblet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Codesandbox"><span class="toc-text">Codesandbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Playcode"><span class="toc-text">Playcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Codepen"><span class="toc-text">Codepen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stackblitz"><span class="toc-text">Stackblitz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSBin"><span class="toc-text">JSBin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Babeljs"><span class="toc-text">Babeljs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TypeScript"><span class="toc-text">TypeScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeInterview"><span class="toc-text">CodeInterview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glitch"><span class="toc-text">Glitch</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>Web Online Code Editor 顾名思义，是依靠浏览器以及后台编译服务器的一个在线代码编辑器。它不依赖于操作系统，无需搭建繁琐的本地环境，无需了解构建流程即可快速实现前端代码逻辑。业内更多的使用它进行 Demo 展示、Live Coding、Interview 等场景。</p>
+<p>这篇文章旨在对主流的 Online Code Editor 产品进行一次简单直面的对比和测评；帮助大家更好地选择选择 Online Code Editor 产品。</p>
+<a id="more"></a>
+<h2 id="Contrast"><a href="#Contrast" class="headerlink" title="Contrast"></a>Contrast</h2><p>那么 IDE 和 Editor 是何关系？关于这个问题，知乎上有个答案我很认可：『IDE 和 Editor 是包含和被包含的关系，IDE 内置了 Editor』</p>
+<p>便捷性：IDE &lt; Editor &lt; Web Online Code Editor<br>能力覆盖：IDE &gt; Editor &gt; Web Online Code Editor</p>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>IDE 帮我们处理了很多事情：创建文档索引缓存、Code Snippet、Autocomplete、Debug、依赖管理、项目管理、版本控制、代码跳转、Dubug、代码高亮、调试、运行。<br>侧重：开发</p>
+<h3 id="Editor"><a href="#Editor" class="headerlink" title="Editor"></a>Editor</h3><p>Editor 在文档编辑的基础上，引用插件的机制在一定程度上降低了 Code Edit 的使用成本。<br>侧重：编辑代码</p>
+<h3 id="Online-Code-Editor"><a href="#Online-Code-Editor" class="headerlink" title="Online Code Editor"></a>Online Code Editor</h3><p>Online Code Editor 更多像是一种 Draft；快速实现、验证想法。它通过浏览器或者与后台编译服务器，默认定制了一套开发环境，使用前端开发成本大大降低。<br>侧重：草稿</p>
+<h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Production</th>
+<th style="text-align:center">Thimble<a href="#Thimble">↗</a></th>
+<th style="text-align:center">Dabblet<a href="#Dabblet">↗</a></th>
+<th style="text-align:center">CodeSandbox<a href="#Codesandbox">↗</a></th>
+<th style="text-align:center">Playcode<a href="#Playcode">↗</a></th>
+<th style="text-align:center">Codepen<a href="#Codepen">↗</a></th>
+<th style="text-align:center">Stackblitz<a href="#Stackblitz">↗</a></th>
+<th style="text-align:center">JSBin<a href="#JSBin">↗</a></th>
+<th style="text-align:center">Babeljs<a href="#Babeljs">↗</a></th>
+<th style="text-align:center">TypeScript<a href="#TypeScript">↗</a></th>
+<th style="text-align:center">CodeInterview<a href="#CodeInterview">↗</a></th>
+<th style="text-align:center">Glitch<a href="#Glitch">↗</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Highlighting</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">Linting &amp; ErrorChecking</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">Formatting</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">AutoCompletion</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">Debugging</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Compiler</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">ES Compiler</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">TS Compiler</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>CSS</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Preprocessors</td>
+<td style="text-align:center">CSS</td>
+<td style="text-align:center">CSS</td>
+<td style="text-align:center">CSS,Stylus Sass,SCSS,Less</td>
+<td style="text-align:center">CSS,Stylus Sass,SCSS,Less</td>
+<td style="text-align:center">CSS</td>
+<td style="text-align:center">CSS Sass,SCSS,Less</td>
+<td style="text-align:center">CSS,Myth,Stylus Sass,SCSS,Less</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">CSS</td>
+<td style="text-align:center">CSS,Stylus Sass,SCSS,Less</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Project</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Dependencies</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">Project Support</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">Directory Support</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Feature</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Price</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free &amp; Paid</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free &amp; Paid</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Free</td>
+<td style="text-align:center">Paid</td>
+<td style="text-align:center">Free</td>
+</tr>
+<tr>
+<td style="text-align:center">Community</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">Rate</td>
+<td style="text-align:center">★★☆</td>
+<td style="text-align:center">☆</td>
+<td style="text-align:center">★★★★★</td>
+<td style="text-align:center">★★★★</td>
+<td style="text-align:center">★★☆</td>
+<td style="text-align:center">★★★★☆</td>
+<td style="text-align:center">★★★☆</td>
+<td style="text-align:center">★★</td>
+<td style="text-align:center">★☆</td>
+<td style="text-align:center">★★☆</td>
+<td style="text-align:center">★★★☆</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Online-Code-Editor-1"><a href="#Online-Code-Editor-1" class="headerlink" title="Online Code Editor"></a>Online Code Editor</h2><h3 id="Thimble"><a href="#Thimble" class="headerlink" title="Thimble"></a><strong>Thimble</strong></h3><p><img src="./thimble.jpeg" alt="thimble"></p>
+<p><a href="https://thimble.mozilla.org/" target="_blank" rel="noopener">Thimble</a> 是 Mozilla 旗下一款在线代码编辑器，可以借用 HTML、CSS 和 JavaScript 的能力轻松地创建和发布网页。但是 Thimble 即将下线，不再维护用户数据；用户的项目与账号将搬到 Glitch 中。Glitch 算是 Thimble 的一个升级款，详情移步 <a href="#Glitch">Glitch</a>.</p>
+<h3 id="Dabblet"><a href="#Dabblet" class="headerlink" title="Dabblet"></a><strong>Dabblet</strong></h3><p><img src="./dabblet.jpeg" alt="dabblet"></p>
+<p><a href="http://dabblet.com/" target="_blank" rel="noopener">Dabblet</a> 提供的能力非常有限，只适合简单的 Web Component &amp; CSS 的调试使用。它对 CSS 模块的设计让人一头雾水。</p>
+<h3 id="Codesandbox"><a href="#Codesandbox" class="headerlink" title="Codesandbox"></a><strong>Codesandbox</strong></h3><p><img src="./codesandbox.jpeg" alt="Codesandbox"></p>
+<p><a href="http://" target="_blank" rel="noopener">Codesandbox</a> 是一款很良心的在线 Editor，几乎能够覆盖平时开发需求。<br>它的社区提供了大量优质的 Demo 项目，可以随时 fork 到自己的环境进行修改和开发；同时官方也提供了大量的 Template 项目，包含但不仅限于：Angular、React、Vanilla、Vue、Gatsby、Next.js、Node、Next.js、React + TS、Vanilla + TS、CsJS、Dojo、Preact、Reason、Static、Svelte、Apollo、Ember、Gridsome、MDX Deck、Nest、Next.js、Node、VuePress、Staleguidist、Sapper；它还可以直接授权登录 Github，同步 Github 中的项目修改和提交。Codesandbox 也是 React 官方推崇的一款 Web Online Code Editor。<br>对于自己开发完的项目，也可以进行发布（三级域名的方式）。在远程协助方面，Codesandbox 也开放了 Live 的能力，使得它可能成为 Interview 或者结对编程的一个解决方案。总得来说，Codesandbox 最大程度地实现了 Local Client 的能力。</p>
+<h3 id="Playcode"><a href="#Playcode" class="headerlink" title="Playcode"></a><strong>Playcode</strong></h3><p><img src="./playcode.jpeg" alt="Playcode"></p>
+<p><a href="https://playcode.io" target="_blank" rel="noopener">Playcode</a> 同样是一款值得夸赞的在线 Editor。极简的面板，没有过多的干扰信息。代码提示绝对是 playcode 的一个亮点。Code Snippet &amp; Auto Complete 都最大程度了提高了开发效率。</p>
+<h3 id="Codepen"><a href="#Codepen" class="headerlink" title="Codepen"></a><strong>Codepen</strong></h3><p><img src="./codepen.jpeg" alt="Codepen"></p>
+<p><a href="http://codepen.io" target="_blank" rel="noopener">Codepen</a> 也是 React 官方推荐的一款 Online Code Editor。三段式（HTML + CSS + JS）的设计，使它成为一个聚焦于组件开发领域以及代码块展示的利器。Codepen 的社区也有相当多的优秀案例可以 fork。当然它采用 CDNjs 的依赖处理方式，使用我们很难做更多的事。</p>
+<h3 id="Stackblitz"><a href="#Stackblitz" class="headerlink" title="Stackblitz"></a><strong>Stackblitz</strong></h3><p><img src="./stackblitz.jpeg" alt="Stackblitz"></p>
+<p><a href="https://stackblitz.com/" target="_blank" rel="noopener">Stackbliz</a> 是一个在 <a href="https://github.com/stackblitz/core/" target="_blank" rel="noopener">Github</a> 上开源的产品。从它富有野心的 Slogan: Your local env,now in the Browser<br>以及 Online IDE powered by Visual Studio Code 可以看出，这就是一个 Web 版本的 VSCode. 实现了 VSCode 的很多能力。Stackbliz 是唯一一款可以正面硬刚 Codesandbox 的产品。</p>
+<h3 id="JSBin"><a href="#JSBin" class="headerlink" title="JSBin"></a><strong>JSBin</strong></h3><p><img src="./jsbin.jpeg" alt="JSBin"></p>
+<p><a href="https://jsbin.com" target="_blank" rel="noopener">JSBin</a> 跟 Codepen 算是一对好基友了，能力都大致相同。在脚本开发语言上非常丰富，样式处理文件的支持上也相当给力。</p>
+<h3 id="Babeljs"><a href="#Babeljs" class="headerlink" title="Babeljs"></a><strong>Babeljs</strong></h3><p><a href="https://babeljs.io/repl" target="_blank" rel="noopener">Babeljs</a> 是一个由 Babel 官方推荐的编译测试 Playground。主要向用户展示 Babel 的能力。</p>
+<h3 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a><strong>TypeScript</strong></h3><p><a href="https://www.typescriptlang.org/play/index.html" target="_blank" rel="noopener">TypeScript</a> 则是一个由 TypeScript 官方推荐的编译测试 Playground。主要向用户展示 TypeScript 的能力。</p>
+<h3 id="CodeInterview"><a href="#CodeInterview" class="headerlink" title="CodeInterview"></a><strong>CodeInterview</strong></h3><p>Screen Test &amp; Code Interivew</p>
+<p><a href="https://www.remoteinterview.io/" target="_blank" rel="noopener">CodeInterview</a> 是一款针对面试场景的行业解决方案，非付费版本功能有效，不予评价。</p>
+<h3 id="Glitch"><a href="#Glitch" class="headerlink" title="Glitch"></a><strong>Glitch</strong></h3><p><img src="./glitch.jpeg" alt="Glitch"></p>
+<p><a href="https://glitch.com" target="_blank" rel="noopener">Glitch</a> 上同样有大量的优秀案例，可以 fork。在线编码以及及时反馈方面还需要优化。</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.yalda.cn">gcy</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.yalda.cn/2019/04/03/web-online-editor/">https://www.yalda.cn/2019/04/03/web-online-editor/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Web/">Web</a>
+            <a href="/tags/Env/">Env</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2019/03/27/longest-common-prefix/">
+        <span class="next-text nav-default">LeetCode 刷题之路：14. Longest Common Prefix</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:guocaoyi@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="http://github.com/guocaoyi" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">gcy</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
